@@ -4,9 +4,9 @@ import ImageComponent from './ImageComponent';
 
 class SliderComponent extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
 
     render () {
         var slider = this.props.tinku.map(function(element, index) {

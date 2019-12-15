@@ -1,31 +1,34 @@
 import React from 'react';
-import SliderComponent from './SliderComponent';
-
+import PersonComponent from './Person/Person';
 
 class App extends React.Component {
 
-    sliderImages = [
-            {
-                path    :   'https://images.mapsofindia.com/my-india/2019/12/map-showing-internet-shutdown-in-india.jpg',
-                name    :   'Image 1'
-            },{
-                path    :   'https://images-na.ssl-images-amazon.com/images/I/71RgfIeTq6L._SY450_.jpg',
-                name    :   'Image 2'
-            },{
-                path    :   'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Language_region_maps_of_India.svg/400px-Language_region_maps_of_India.svg.png',
-                name    :   'Image 3'
-            },
-        ];
-    
-    constructor(props) {
-        super(props);
+    //normal property of person array :-
+    // persons =  [{ name: 'Prasoon', age : 30 }, { name: 'Prasoon', age : 30 }, { name: 'Prasoon', age : 30 }]
+
+    state = {
+        persons :  [{ name: 'Prasoon', age : 33 }, { name: 'Vinay', age : 32 }, { name: 'Sanchit', age : 23 }],
+        not_avaliable : [{ name: 'Anand', age : 33 },{ name: 'Sanjeev', age : 33 }],
+     };
+
+    changePersonHandler = () => {
+        // alert('change name');
+        // console.log(this.state);
+        this.setState({
+            persons :  [{ name: 'Prasoon', age : 331 }, { name: 'Vinay', age : 321 }, { name: 'Sanchit', age : 231 }]
+        });
+
     }
 
-    render () {
+    render() {
         return (
             <div>
-                <h1>Welcome to India</h1>
-                <SliderComponent tinku={this.sliderImages} />
+                <button onClick={this.changePersonHandler}>Change Person</button>
+                <PersonComponent name={this.state.persons[0].name} age={this.state.persons[0].age} />
+                <PersonComponent name={this.state.persons[1].name} age={this.state.persons[1].age} />
+                <PersonComponent name={this.state.persons[2].name} age={this.state.persons[2].age} />
+                <PersonComponent name={this.state.not_avaliable[0].name} age={this.state.not_avaliable[0].age} />
+                <PersonComponent name={this.state.not_avaliable[1].name} age={this.state.not_avaliable[1].age} />
             </div>
         );
     }

@@ -1,4 +1,5 @@
 import React from 'react';
+import Para from './para';
 
 
 
@@ -18,11 +19,15 @@ class ImageComponent extends React.Component {
     }
     //Method :- 
     render () {
+        var a = 1+ 99 ;
         return (
             <div>
-                <img src={this.image_path} className="img_class" alt="Image" />
-                <p>{this.image_name}</p>
-                <p>{this.props.children}</p>
+                <img src={this.image_path} height="100" className="img_class" alt="Image" />
+                <Para text={this.image_name} />
+                <Para text={this.image_name} >
+                    {this.props.children}
+                </Para>
+                {a}
             </div>
         );
     }

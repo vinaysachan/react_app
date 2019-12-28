@@ -2,23 +2,22 @@ import React from 'react';
 import ImageComponent from './ImageComponent';
 
 
+
 class SliderComponent extends React.Component {
 
-    // constructor(props) {
-    //     super(props);
-    // }
-
-    render () {
-        var slider = this.props.tinku.map(function(element, index) {
+    slider () {
+        return this.props.tinku.map(function(element, index) {
             return (
                 <ImageComponent key={index} path={element.path} name={element.name} />
             );
         })
+    }
 
+    render () {
         return (
             <div>
                 <p>This is Image Slider :- </p>
-                {slider}
+                {this.slider()}
             </div>
         );
     }

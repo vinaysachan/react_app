@@ -25,7 +25,7 @@ class App extends React.Component {
         return (
             <div>
                 <h1>Welcome to India</h1>
-                <SliderComponent tinku={this.sliderImages} />
+                <SliderComponent header="My Front Slider" tinku={this.sliderImages} />
                 <p>This is special Image</p>
                 <ImageComponent path="./images/logo.png"name="this is react LOgo">
                     My name is vinay sachan

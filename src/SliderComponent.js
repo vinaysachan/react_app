@@ -52,6 +52,14 @@ class SliderComponent extends React.Component {
             );
         });
     }
+
+    // slider() {
+    //     return this.props.tinku.map(function(element, index) {
+    //         return (
+    //             <ImageComponent myevent={this.propStateUpdateHandler} myname={this.my_name} key={index} path={element.path} name={element.name} />
+    //         );
+    //     });
+    // }
     
     render () {
         console.log(this.state);

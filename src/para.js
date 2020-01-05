@@ -1,7 +1,17 @@
-import React, {useState} from 'react';
- 
+import React, {useState, useEffect} from 'react';
+
+
+//useEffect :- 
 
 const Para  = (props) => {
+
+    console.log('Para.js called.');
+
+    useEffect(() => {
+        console.log('Para.js called useeffect.');
+    });
+
+
     const [key1State, key1StateUpdate] = useState({
         key1 : 'val1'
     }); //==> array (2 keys => 1st key set , 2nd key update) 
@@ -9,7 +19,6 @@ const Para  = (props) => {
     const [key2State, key2StateUpdate] = useState({
         key2 : 'val2'
     });
-
 
     //state data ==> 1 - set, 2 -update(setState) 
     const changeVal = () => {

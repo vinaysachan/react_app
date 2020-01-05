@@ -1,5 +1,7 @@
 import React from 'react';
 import ImageComponent from './ImageComponent';
+import Para from './para';
+import ParaReact from './ParaReact' ;
 
 class SliderComponent extends React.Component {
 
@@ -48,15 +50,16 @@ class SliderComponent extends React.Component {
     slider  =   ()  =>  {
         return this.props.tinku.map((element, index) => {
             return (
-                <ImageComponent myevent={this.propStateUpdateHandler} myname={this.my_name} key={index} path={element.path} name={element.name} />
+                <ImageComponent myevent={this.propStateUpdateHandler} myname={this.my_name}  path={element.path} name={element.name} />
             );
         });
     }
 
     // slider() {
+        // var thClass = this ;
     //     return this.props.tinku.map(function(element, index) {
     //         return (
-    //             <ImageComponent myevent={this.propStateUpdateHandler} myname={this.my_name} key={index} path={element.path} name={element.name} />
+    //             <ImageComponent myevent={thClass.propStateUpdateHandler} myname={thClass.my_name} key={index} path={element.path} name={element.name} />
     //         );
     //     });
     // }
@@ -66,9 +69,10 @@ class SliderComponent extends React.Component {
         console.log('step  - SliderComponent.js Render called');
         return (
             <div>
-                <p>This is Image Slider ({this.props.header}) :- </p>
+                {/* <Para text="This is Image Slider">({this.props.header}) :-</Para> */}
                 {this.slider()}
                 <button>Update Props & State</button>
+                <ParaReact text='vvvvvvvvvvvvvvvvvvvvvvvvvvv' />
             </div>
         );
     }

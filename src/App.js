@@ -1,6 +1,8 @@
 import React from 'react';
 import SliderComponent from './SliderComponent';
 import ImageComponent from './ImageComponent';
+import Para from './para';
+import WithClass from './Hoc/WIthClass';
 
 class App extends React.Component {
 
@@ -23,10 +25,10 @@ class App extends React.Component {
 
     render () {
         return (
-            <div>
+            <WithClass classes="sss">
                 <h1>Welcome to India</h1>
                 <SliderComponent header="My Front Slider" tinku={this.sliderImages} />
-                <p>This is special Image</p>
+                {/* <Para text="This is special Image" /> */}
                 <ImageComponent path="./images/logo.png"name="this is react LOgo">
                     My name is vinay sachan
                 </ImageComponent>
@@ -34,7 +36,7 @@ class App extends React.Component {
                 <ImageComponent path="./images/logo.png"name="this is react LOgo">
                     <ImageComponent path="./images/logo.png"name="this is react LOgo"></ImageComponent>
                 </ImageComponent>
-            </div>
+            </WithClass>
         );
     }
 }

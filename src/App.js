@@ -3,8 +3,17 @@ import SliderComponent from './SliderComponent';
 import ImageComponent from './ImageComponent';
 import Para from './para';
 import WithClass from './Hoc/WIthClass';
+import PropTypes from 'prop-types'; 
+import AuthContext from './Context/authContext';
 
 class App extends React.Component {
+
+    isUserLogin;
+
+    constructor(props) {
+        super(props);
+        this.state = {isUserLogin : false};
+    }
 
     sliderImages = [
             {
@@ -18,27 +27,37 @@ class App extends React.Component {
                 name    :   'Image 3'
             },
         ];
-    
-    // constructor(props) {
-    //     super(props);
-    // }
 
-    render () {
+    LoginHandler = () => {
+        //this.setState({isUserLogin : !this.state.isUserLogin});
+        this.setState((prevStates,prevProps) => ({
+            isUserLogin : !prevStates.isUserLogin
+        }));
+    }
+
+    render =  () => {
         return (
             <WithClass classes="sss">
                 <h1>Welcome to India</h1>
-                <SliderComponent header="My Front Slider" tinku={this.sliderImages} />
-                {/* <Para text="This is special Image" /> */}
-                <ImageComponent path="./images/logo.png"name="this is react LOgo">
-                    My name is vinay sachan
-                </ImageComponent>
-                <hr />
-                <ImageComponent path="./images/logo.png"name="this is react LOgo">
-                    <ImageComponent path="./images/logo.png"name="this is react LOgo"></ImageComponent>
-                </ImageComponent>
+                <button type="button" onClick={this.LoginHandler}>{this.state.isUserLogin ? 'Logout' : 'Login'}</button>
+                 <AuthContext.Provider value={{isAuthenticated : this.state.isUserLogin}} >
+                    <SliderComponent header="My Front Slider" tinku={this.sliderImages} />
+                    {/* <Para text="This is special Image" /> */}
+                    <ImageComponent path="./images/logo.png"name="this is react LOgo">
+                        My name is vinay sachan
+                    </ImageComponent>
+                    <hr />
+                    <ImageComponent path="./images/logo.png"name="this is react LOgo">
+                        <ImageComponent path="./images/logo.png"name="this is react LOgo"></ImageComponent>
+                    </ImageComponent>
+                </AuthContext.Provider>
             </WithClass>
         );
     }
 }
+
+// App.propTypes   =   {
+//     isUserLogin : PropTypes.bool
+// };
 
 export default App;

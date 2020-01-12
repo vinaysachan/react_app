@@ -1,14 +1,18 @@
-import React, {useState, useEffect} from 'react';
-
+import React, {useState, useEffect, useRef} from 'react';
+import AuthContext from './Context/authContext';
 
 //useEffect :- 
 
 const Para  = (props) => {
 
+    const pRef  =   React.useRef(null);
+
     console.log('Para.js called.');
 
     useEffect(() => {
         console.log('Para.js called useeffect.');
+        console.log(pRef);
+        console.log(pRef.current);
     });
 
 
@@ -28,10 +32,16 @@ const Para  = (props) => {
     };
     return (
         <div>
-            <p>{props.text}</p>
+            <AuthContext.Consumer>
+                {
+                    (context) => context.isAuthenticated ? (<p>You are loggedIn</p> ) : (<p>You are Not loggedIn</p>)
+                }
+            </AuthContext.Consumer>
+            {/* { props.isAuth ? (<p>You are loggedIn</p> ) : <p>You are Not loggedIn</p> } */}
+            <p ref={pRef}>{props.text}</p>
             {props.children}
         </div>
     );
 };
-
+//AuthContext.Consumer
 export default Para;

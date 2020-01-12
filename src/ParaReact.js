@@ -1,4 +1,7 @@
 import React, {useState, useEffect} from 'react';
+import PropTypes from 'prop-types'; // ES6
+// var PropTypes = require('prop-types'); // ES5 with npm
+
 
 
 class ParaReact extends React.Component {
@@ -22,11 +25,18 @@ class ParaReact extends React.Component {
     render() {
         return (
             <div>
-                <p>{this.props.text}</p>
+                <p onClick={this.props.clickEvent}>{this.props.text}</p>
                 {this.props.children}
             </div>
         );
     }
 
 }
+
+//variable => all props datatypes define :- 
+ParaReact.propTypes = {
+    clickEvent : PropTypes.func,
+    text : PropTypes.string
+}
+
 export default ParaReact;

@@ -1,8 +1,13 @@
 import React from 'react';
 
 
-const authContext =  React.createContext({
-    isAuthenticated : false
-});
+var data = {
+    isAuthenticated : false,
+    name : null,
+    age : null,
+    city : null
+} ;
+
+const authContext =  React.createContext(data);
 
 export default authContext;

@@ -5,6 +5,7 @@ import ParaReact from './ParaReact' ;
 import withWrapFunction from './Hoc/withWrapFunction';
 import Aux from './Hoc/Aux';
 import PropTypes from 'prop-types'; // ES6
+import AuthContext from './Context/authContext';
 
 class SliderComponent extends React.Component {
 
@@ -105,6 +106,11 @@ class SliderComponent extends React.Component {
         console.log('step  - SliderComponent.js Render called');
         return (
             <div>
+                <AuthContext.Consumer>
+                {
+                    (context) => context.isAuthenticated ? (<p>Welecome back {context.name}</p>) : 'Not Login'
+                }
+                </AuthContext.Consumer>
                 <Para isAuth={this.props.isAuth} text="Here we used Para Component as functional component">({this.props.header}) :-</Para>
                 {this.slider()}
                 <button  
